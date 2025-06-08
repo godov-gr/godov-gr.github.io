@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Godov's Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      background: #0f0f0f;
+      color: white;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      filter: blur(6px);
+    }
+    .blur-bg {
+      backdrop-filter: blur(6px);
+      background-color: rgba(15, 15, 15, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <button id="toggleBG" class="fixed top-4 right-4 bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded z-10">Toggle BG Mode</button>
+
+  <div id="content">
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi! I'm <span class="text-yellow-400">Godov</span>.</h1>
+      <p class="text-lg md:text-xl text-gray-300 max-w-xl">
+        💻 IT specialist, developer and computer science enjoyer.
+      </p>
+    </section>
+
+    <section class="max-w-4xl mx-auto p-6 mt-12 rounded-xl shadow-xl blur-bg">
+      <h2 class="text-2xl font-bold text-yellow-300 mb-4">🧾 About me</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>⚡ Multifunctional Telegram bots</li>
+        <li>🌐 All kinds of parsers and analyzers</li>
+        <li>🎮 Interactive RPG games</li>
+      </ul>
+      <h3 class="text-xl font-semibold mt-6">🎯 Interests:</h3>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>🔐 Cybersecurity</li>
+        <li>🎮 Game development</li>
+        <li>🔁 Process automation</li>
+      </ul>
+    </section>
+
+    <section class="max-w-4xl mx-auto p-6 mt-12 rounded-xl shadow-xl blur-bg">
+      <h2 class="text-2xl font-bold text-blue-300 mb-4">🛠 My Skills</h2>
+      <p class="mb-2 font-semibold">Languages:</p>
+      <p class="mb-4">Python, C, C++, JavaScript, Java</p>
+      <p class="mb-2 font-semibold">Frameworks:</p>
+      <p class="mb-4">Flask, Django, AioGram</p>
+      <p class="mb-2 font-semibold">Parsing & Analyzing:</p>
+      <p class="mb-4">BeautifulSoup, Pandas, NumPy, Matplotlib</p>
+      <p class="mb-2 font-semibold">Tools:</p>
+      <p class="mb-4">Docker, Kubernetes, GitHub Actions</p>
+    </section>
+  </div>
+
+  <script src="background.js"></script>
+  <script>
+    const btn = document.getElementById("toggleBG");
+    const content = document.getElementById("content");
+    let visible = true;
+    btn.onclick = () => {
+      visible = !visible;
+      content.style.display = visible ? "block" : "none";
+    };
+  </script>
+</body>
+</html>
