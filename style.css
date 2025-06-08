@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: 'Fira Code', monospace;
+  background: #0f0f0f;
+  color: white;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: blur(6px);
+}
+.toggle-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #facc15;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  z-index: 10;
+}
+.section-box {
+  max-width: 960px;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(6px);
+  background-color: rgba(15, 15, 15, 0.6);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #facc15;
+  margin-bottom: 1rem;
+}
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+.popup-inner {
+  background: #1f1f1f;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+}
+.popup-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.25rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+.popup-trigger {
+  background: none;
+  border: none;
+  color: #93c5fd;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}

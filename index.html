@@ -7,28 +7,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Fira Code', monospace;
-      background: #0f0f0f;
-      color: white;
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      filter: blur(6px);
-    }
-    .blur-bg {
-      backdrop-filter: blur(6px);
-      background-color: rgba(15, 15, 15, 0.6);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="toggleBG" class="fixed top-4 right-4 bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded z-10">Toggle BG Mode</button>
+  <button id="toggleBG" class="toggle-button">Toggle BG Mode</button>
 
   <div id="content">
     <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
@@ -38,12 +20,12 @@
       </p>
     </section>
 
-    <section class="max-w-4xl mx-auto p-6 mt-12 rounded-xl shadow-xl blur-bg">
-      <h2 class="text-2xl font-bold text-yellow-300 mb-4">🧾 About me</h2>
+    <section class="section-box">
+      <h2 class="section-title">🧾 About me</h2>
       <ul class="list-disc pl-5 space-y-2">
-        <li>⚡ Multifunctional Telegram bots</li>
-        <li>🌐 All kinds of parsers and analyzers</li>
-        <li>🎮 Interactive RPG games</li>
+        <li><button class="popup-trigger" data-project="bots">⚡ Multifunctional Telegram bots</button></li>
+        <li><button class="popup-trigger" data-project="parsers">🌐 All kinds of parsers and analyzers</button></li>
+        <li><button class="popup-trigger" data-project="rpg">🎮 Interactive RPG games</button></li>
       </ul>
       <h3 class="text-xl font-semibold mt-6">🎯 Interests:</h3>
       <ul class="list-disc pl-5 space-y-1">
@@ -53,8 +35,8 @@
       </ul>
     </section>
 
-    <section class="max-w-4xl mx-auto p-6 mt-12 rounded-xl shadow-xl blur-bg">
-      <h2 class="text-2xl font-bold text-blue-300 mb-4">🛠 My Skills</h2>
+    <section class="section-box">
+      <h2 class="section-title text-blue-300">🛠 My Skills</h2>
       <p class="mb-2 font-semibold">Languages:</p>
       <p class="mb-4">Python, C, C++, JavaScript, Java</p>
       <p class="mb-2 font-semibold">Frameworks:</p>
@@ -66,6 +48,18 @@
     </section>
   </div>
 
+  <div id="popup" class="popup hidden">
+    <div class="popup-inner">
+      <button id="closePopup" class="popup-close">✖</button>
+      <div id="popupContent">
+        
+
+
+        
+      </div>
+    </div>
+  </div>
+
   <script src="background.js"></script>
   <script>
     const btn = document.getElementById("toggleBG");
@@ -75,6 +69,22 @@
       visible = !visible;
       content.style.display = visible ? "block" : "none";
     };
+
+    const popup = document.getElementById("popup");
+    const closeBtn = document.getElementById("closePopup");
+    const popupContent = document.getElementById("popupContent");
+
+    document.querySelectorAll('.popup-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const project = btn.getAttribute('data-project');
+        popup.classList.remove('hidden');
+        popupContent.innerHTML = `<h3 class='text-xl font-bold mb-2'>${project}</h3><p>Описание проекта будет здесь.</p>`;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      popup.classList.add('hidden');
+    });
   </script>
 </body>
 </html>
