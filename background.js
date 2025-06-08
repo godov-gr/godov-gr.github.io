@@ -43,6 +43,7 @@ function setup() {
       if (canvas) {
         canvas.style.filter = bgEnabled ? "none" : "blur(6px)";
       }
+      toggleBtn.innerText = bgEnabled ? "Normal Mode" : "Only BG Mode";
     });
   }
 
@@ -65,7 +66,7 @@ function draw() {
     let flicker = sin(t * s.pulseSpeed + s.pulsePhase);
     let alpha = map(flicker, -1, 1, 30, 255);
 
-    // Отталкивание от курсора.
+    // Oтталкивание от курсора.
     let dx = s.x - mouseX;
     let dy = s.y - mouseY;
     let dist = sqrt(dx * dx + dy * dy);
