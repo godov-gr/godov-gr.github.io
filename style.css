@@ -9,12 +9,13 @@ canvas {
   top: 0;
   left: 0;
   z-index: -1;
-  filter: blur(6px);
+  image-rendering: pixelated; 
 }
+
 .toggle-button {
   position: fixed;
   top: 1rem;
-  right: 1rem;
+  left: 1rem;
   background-color: #facc15;
   color: black;
   padding: 0.5rem 1rem;
