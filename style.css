@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  font-family: 'Fira Code', monospace;
+  /*font-family: 'Fira Code', monospace;  */
+  font-family: "TTFirsNeue", sans-serif;
   background: #0f0f0f;
   color: white;
 }
