@@ -25,6 +25,7 @@
       <ul class="list-disc pl-5 space-y-2">
         <li><button class="popup-trigger" data-project="bots">⚡ Multifunctional Telegram bots</button></li>
         <li><button class="popup-trigger" data-project="parsers">🌐 All kinds of parsers and analyzers</button></li>
+        <li><button class="popup-trigger" data-project="txt2excel">📄 Any kind of software </button></li>
         <li><button class="popup-trigger" data-project="rpg">🎮 Interactive RPG games</button></li>
       </ul>
       <h3 class="text-xl font-semibold mt-6">🎯 Interests:</h3>
@@ -73,12 +74,40 @@
     const popup = document.getElementById("popup");
     const closeBtn = document.getElementById("closePopup");
     const popupContent = document.getElementById("popupContent");
+    const descriptions = {
+      bots: {
+        title: "Multifunctional Telegram bots",
+        content: "Automation, scraping, chatting — all via powerful Telegram bots."
+      },
+      parsers: {
+        title: "All kinds of parsers and analyzers",
+        content: "From HTML to JSON — I make data mineable and pretty."
+      },
+      rpg: {
+        title: "Interactive RPG games",
+        content: "Text-based, turn-based — pure joy with logic and storylines."
+      },
+      txt2excel: {
+        title: "TXT ➜ Excel Converter (GUI)",
+        content: `
+          <p>⚙️ PyQt6-powered application that converts structured text files into beautiful Excel spreadsheets.</p>
+          <ul class="list-disc pl-5 mt-2 text-left">
+            <li>🔍 Automatic delimiter detection</li>
+            <li>🧠 Automatic table preview</li>
+            <li>🖱 Editable headers</li>
+            <li>📤 Instant Excel export</li>
+          </ul>
+          <p class="mt-2"><a href="https://github.com/godov-gr/txt2excel-converter" target="_blank" class="text-blue-400 underline">🔗 View on GitHub</a></p>
+        `
+      }
+    };
 
     document.querySelectorAll('.popup-trigger').forEach(btn => {
       btn.addEventListener('click', () => {
         const project = btn.getAttribute('data-project');
+        const data = descriptions[project] || { title: project, content: "No description yet." };
         popup.classList.remove('hidden');
-        popupContent.innerHTML = `<h3 class='text-xl font-bold mb-2'>${project}</h3><p>Описание проекта будет здесь.</p>`;
+        popupContent.innerHTML = `<h3 class='text-xl font-bold mb-2'>${data.title}</h3>${data.content}`;
       });
     });
 
