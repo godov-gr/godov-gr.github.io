@@ -60,61 +60,14 @@
       </div>
     </div>
   </div>
+  <div id="lightbox" class="hidden fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+  <button id="lightbox-close" class="absolute top-4 right-6 text-white text-3xl">&times;</button>
+  <button id="lightbox-prev" class="absolute left-4 text-white text-2xl">&larr;</button>
+  <img id="lightbox-img" class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg" src="" alt="preview" />
+  <button id="lightbox-next" class="absolute right-4 text-white text-2xl">&rarr;</button>
+  </div>
 
   <script src="background.js"></script>
-  <script>
-    const btn = document.getElementById("toggleBG");
-    const content = document.getElementById("content");
-    let visible = true;
-    btn.onclick = () => {
-      visible = !visible;
-      content.style.display = visible ? "block" : "none";
-    };
-
-    const popup = document.getElementById("popup");
-    const closeBtn = document.getElementById("closePopup");
-    const popupContent = document.getElementById("popupContent");
-    const descriptions = {
-      bots: {
-        title: "Multifunctional Telegram bots",
-        content: "Automation, scraping, chatting — all via powerful Telegram bots."
-      },
-      parsers: {
-        title: "All kinds of parsers and analyzers",
-        content: "From HTML to JSON — I make data mineable and pretty."
-      },
-      rpg: {
-        title: "Interactive RPG games",
-        content: "Text-based, turn-based — pure joy with logic and storylines."
-      },
-      txt2excel: {
-        title: "TXT ➜ Excel Converter (GUI)",
-        content: `
-          <p>⚙️ PyQt6-powered application that converts structured text files into beautiful Excel spreadsheets.</p>
-          <ul class="list-disc pl-5 mt-2 text-left">
-            <li>🔍 Automatic delimiter detection</li>
-            <li>🧠 Automatic table preview</li>
-            <li>🖱 Editable headers</li>
-            <li>📤 Instant Excel export</li>
-          </ul>
-          <img src="img/txt2excel.png" alt="Text2Excel GUI" class="mt-4 rounded-lg shadow-lg w-full">
-          <p class="mt-2"><a href="https://github.com/godov-gr/txt2excel-converter" target="_blank" class="text-blue-400 underline">🔗 View on GitHub</a></p>
-        `
-      }
-    };
-
-    document.querySelectorAll('.popup-trigger').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const project = btn.getAttribute('data-project');
-        const data = descriptions[project] || { title: project, content: "No description yet." };
-        popup.classList.remove('hidden');
-        popupContent.innerHTML = `<h3 class='text-xl font-bold mb-2'>${data.title}</h3>${data.content}`;
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      popup.classList.add('hidden');
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
