@@ -59,7 +59,7 @@ const descriptions = {
   },
   parsers: {
     title: "All kinds of parsers and analyzers",
-    content: "From HTML to JSON — I make data mineable and pretty. Maybe share it in futurem idk."
+    content: "From HTML to JSON — I make data mineable and pretty. Maybe I'll share it in future idk."
   },
   rpg: {
     title: "Interactive RPG games",
